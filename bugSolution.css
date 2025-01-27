@@ -1,0 +1,19 @@
+To solve this issue, consider refactoring your CSS to avoid using `!important` where possible. While it's sometimes necessary to use `!important`, overusing it can make your code less maintainable and harder to debug. In this specific example, a more maintainable solution would be to adjust the specificity of your selectors or use a more granular style approach.
+
+Here's an example of how to resolve this issue by adjusting the specificity of the selectors:
+
+```css
+.container {
+  font-size: 16px;
+}
+
+.container p {
+  font-size: 18px;
+}
+
+.container p a {
+  font-size: 14px;
+}
+```
+
+By removing the `!important` declaration, the CSS engine will correctly apply the inherited `font-size` from the paragraph, then overwrite it with the `font-size` for the `<a>` tag.
